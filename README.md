@@ -4,19 +4,18 @@
 
 <a href="#"><img src="https://img.shields.io/badge/arXiv-coming%20soon-b31b1b.svg"></a> &nbsp;
 <a href="https://hanyangyu1021.github.io/maskwam.github.io/"><img src="https://img.shields.io/badge/Project-MaskWAM-blue"></a> &nbsp;
-<a href="#"><img src="https://img.shields.io/badge/Code-coming%20soon-lightgrey"></a> &nbsp;
 <a href="#"><img src="https://img.shields.io/badge/License-MIT-green.svg"></a>
 
 [Hanyang Yu](https://hanyangyu1021.github.io/)<sup>1</sup>,
 [Haitao Lin](https://hetolin.github.io/)<sup>2</sup>,
 [Jingbo Zhang](https://eckertzhang.github.io/)<sup>2</sup>,
 [Wenyao Zhang](https://zhangwenyao1.github.io/)<sup>2</sup>,
-[Chenghao Gu](https://chenghaogu.github.io/)<sup>4</sup>,
+[Chenghao Gu](https://chenghaogu.github.io/)<sup>3</sup>,
 [Heng Li](https://hengli.me/)<sup>1</sup>,
 [Ping Tan](https://ece.hkust.edu.hk/pingtan)<sup>1</sup>
 
 <sup>1</sup>The Hong Kong University of Science and Technology  
-<sup>2</sup>Tencent Robotics X, <sup>3</sup>Futian Laboratory, <sup>4</sup>Tsinghua University
+<sup>2</sup>Tencent Robotics X, <sup>3</sup>Tsinghua University
 
 
 <img src="assets/teaser.png" width="95%">
