@@ -1,0 +1,43 @@
+# Training config for MaskWAM on LIBERO.
+defaults:
+  - _self_
+
+experiment_name: maskwam_libero
+seed: 42
+output_dir: outputs/${experiment_name}
+
+model:
+  name: maskwam
+  rgb_encoder: vit_base_patch16
+  mask_encoder: vit_small_patch16
+  hidden_dim: 768
+  num_layers: 12
+  num_heads: 12
+  action_dim: 7
+  action_chunk_size: 8
+  pred_horizon: 4          # number of future RGB / mask frames to predict
+  use_mask_prompt: true
+  predict_future_mask: true
+
+data:
+  name: libero
+  root: data/libero
+  suites: [libero_spatial, libero_object, libero_goal, libero_long]
+  image_size: 224
+  num_workers: 8
+
+train:
+  batch_size: 64
+  max_steps: 100000
+  lr: 1.0e-4
+  weight_decay: 0.05
+  warmup_steps: 2000
+  grad_clip: 1.0
+  mixed_precision: bf16
+  log_every: 50
+  save_every: 5000
+
+loss:
+  rgb_weight: 1.0
+  mask_weight: 1.0
+  action_weight: 1.0

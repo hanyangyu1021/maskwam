@@ -1,0 +1,42 @@
+# Training config for MaskWAM on RoboTwin 2.0.
+defaults:
+  - _self_
+
+experiment_name: maskwam_robotwin
+seed: 42
+output_dir: outputs/${experiment_name}
+
+model:
+  name: maskwam
+  rgb_encoder: vit_base_patch16
+  mask_encoder: vit_small_patch16
+  hidden_dim: 768
+  num_layers: 12
+  num_heads: 12
+  action_dim: 14           # bimanual
+  action_chunk_size: 16
+  pred_horizon: 4
+  use_mask_prompt: true
+  predict_future_mask: true
+
+data:
+  name: robotwin
+  root: data/robotwin
+  image_size: 224
+  num_workers: 8
+
+train:
+  batch_size: 32
+  max_steps: 150000
+  lr: 1.0e-4
+  weight_decay: 0.05
+  warmup_steps: 2000
+  grad_clip: 1.0
+  mixed_precision: bf16
+  log_every: 50
+  save_every: 5000
+
+loss:
+  rgb_weight: 1.0
+  mask_weight: 1.0
+  action_weight: 1.0

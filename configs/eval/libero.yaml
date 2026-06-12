@@ -1,0 +1,13 @@
+# Evaluation config for MaskWAM on LIBERO.
+defaults:
+  - _self_
+
+checkpoint: checkpoints/maskwam_libero/last.ckpt
+suites: [libero_spatial, libero_object, libero_goal, libero_long]
+num_episodes_per_task: 50
+max_steps_per_episode: 600
+image_size: 224
+use_mask_prompt: true
+seed: 0
+save_videos: true
+video_dir: outputs/eval/libero/videos

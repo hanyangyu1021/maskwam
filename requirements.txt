@@ -1,0 +1,28 @@
+# Core
+torch>=2.1.0
+torchvision>=0.16.0
+numpy>=1.24
+einops>=0.7.0
+
+# Models / tokenizers
+transformers>=4.40.0
+timm>=0.9.12
+diffusers>=0.27.0
+
+# Config & logging
+hydra-core>=1.3.2
+omegaconf>=2.3.0
+wandb>=0.16.0
+tensorboard>=2.15.0
+
+# Data & vision
+opencv-python>=4.9.0
+pillow>=10.0.0
+imageio>=2.34.0
+h5py>=3.10.0
+pycocotools>=2.0.7
+
+# Utils
+tqdm>=4.66.0
+rich>=13.7.0
+pyyaml>=6.0

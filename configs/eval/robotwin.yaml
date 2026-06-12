@@ -1,0 +1,13 @@
+# Evaluation config for MaskWAM on RoboTwin 2.0.
+defaults:
+  - _self_
+
+checkpoint: checkpoints/maskwam_robotwin/last.ckpt
+tasks: [block_handover, dual_bottle_pick, container_place, shoe_place]
+num_episodes_per_task: 50
+max_steps_per_episode: 800
+image_size: 224
+use_mask_prompt: true
+seed: 0
+save_videos: true
+video_dir: outputs/eval/robotwin/videos
