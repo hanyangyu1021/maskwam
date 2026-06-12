@@ -2,7 +2,7 @@
 
 # MaskWAM: Unifying Mask Prompting and Prediction for World-Action Models
 
-<a href="#"><img src="https://img.shields.io/badge/arXiv-coming%20soon-b31b1b.svg"></a> &nbsp;
+<a href="https://arxiv.org/abs/2606.13515"><img src="https://img.shields.io/badge/arXiv-2606.13515-b31b1b.svg"></a> &nbsp;
 <a href="https://hanyangyu1021.github.io/maskwam.github.io/"><img src="https://img.shields.io/badge/Project-MaskWAM-blue"></a> &nbsp;
 <a href="#"><img src="https://img.shields.io/badge/License-MIT-green.svg"></a>
 
@@ -30,6 +30,7 @@ This repository is the official implementation of **MaskWAM: Unifying Mask Promp
 
 ## News
 
+- **[2026.06.11] Paper released on arXiv.** Read it at [arXiv:2606.13515](https://arxiv.org/abs/2606.13515).
 - **[2026.06.10] Code is coming soon.** We are finalizing training, inference, and evaluation code.
 - **[2026.06.08] Project page released.** Please visit the [project website](https://hanyangyu1021.github.io/maskwam.github.io/) for videos and visualizations.
 
@@ -127,6 +128,6 @@ If you find MaskWAM useful in your research, please consider citing:
 @article{yu2026maskwam,
   title   = {MaskWAM: Unifying Mask Prompting and Prediction for World-Action Models},
   author  = {Hanyang Yu and Haitao Lin and Jingbo Zhang and Wenyao Zhang and Chenghao Gu and Heng Li and Ping Tan},
-  journal = {},
+  journal = {arXiv preprint arXiv:2606.13515},
   year    = {2026}
 }
