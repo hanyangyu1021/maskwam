@@ -1,37 +1,59 @@
-# Byte-compiled / optimized / DLL files
+# SAM2 / SAM3 模型权重与检查点
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+*.onnx
+*.engine
+*.hdf5
+*.mp4
+*.npz
+*.pkl
+*.zip
+
+# Small release fixtures and normalization bundled intentionally
+!maskseg/xtrainer_test/**/*.hdf5
+!maskseg/xtrainer_test/**/*.mp4
+!maskseg/xtrainer_test/**/*.npz
+!platforms/real/realdata_utils/norm_all/qpos_mean_std_online.pkl
+
+**/checkpoints/*
+!**/checkpoints/*.sh
+**/weights/*
+
+pretrained_models/*
+third_party/
+
+# MaskWAM-Seg runtime state and generated annotations
+maskseg/asserts/demo_data/has_annotation_*.json
+maskseg/asserts/demo_data/no_annotation_*.json
+maskseg/asserts/demo_data/human_anno_*/
+maskseg/user_config/
+maskseg/client/response.zip
+maskseg/.vscode/
+
+# MaskWAM runtime outputs and external data
+checkpoints/
+ckpt/
+outputs/
+wandb/
+data/*
+!data/__init__.py
+!data/hdf5_dataset_xtrainer_T.py
+!data/hdf5_dataset_libero_T.py
+debug_videos/
+eval_logs*/
+eval_videos/
+eval_results/
+realdata/
+configs/dataset_meta/
+
+wandb_run_info.json
+
+# Python caches
 __pycache__/
 *.py[cod]
-*$py.class
-
-# Distribution / packaging
-build/
-dist/
-*.egg-info/
-.eggs/
-
-# Virtual environments
-.venv/
-venv/
-env/
-
-# Experiment outputs
-outputs/
-logs/
-wandb/
-runs/
-*.log
-
-# Checkpoints & data
-checkpoints/
-*.ckpt
-*.pth
-*.pt
-data/
-datasets/
-*.h5
-*.hdf5
-
-# IDE / OS
-.idea/
-.vscode/
-.DS_Store
+.pytest_cache/
+.ruff_cache/
+.eval_overrides/
+.eval_wheels/

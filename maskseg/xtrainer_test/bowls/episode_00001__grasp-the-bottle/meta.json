@@ -1,0 +1,29 @@
+{
+  "source_dataset": "xtrainer",
+  "source_hdf5": "20260401-124037_0a0a3cc2-b45a-470f-bc8b-afccd8054729.hdf5",
+  "episode_index": 1,
+  "camera_view": "cam_high",
+  "task_text": "grasp the bottle",
+  "instruction_source": "hdf5",
+  "instruction_candidates": [
+    "grasp the bottle"
+  ],
+  "frame_range": {
+    "start": 0,
+    "end_inclusive": 376,
+    "num_frames": 377
+  },
+  "frame_count_before_crop": 377,
+  "frame_count_after_crop": 377,
+  "state_key": "observations/eepos",
+  "state_dim": 16,
+  "action_dim": 14,
+  "video_meta": {
+    "width": 640,
+    "height": 480,
+    "fps": 10.0,
+    "frame_count": 377,
+    "video_encoder": "libx264",
+    "video_pixel_format": "yuv420p"
+  }
+}

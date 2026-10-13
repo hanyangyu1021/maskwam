@@ -1,0 +1,38 @@
+platform: libero
+model_type: mask_wan_mot_sim
+type: hdf5
+hdf5_dir: ${data_root}/libero_vam
+action_type: qpos
+use_hdf5: true
+img_history_size: 1
+action_chunk_size: 48
+state_dim: 16
+num_cameras: 2
+use_mask: true
+input_mask: false
+predict_mask: true
+min_episode_length: 32
+consistent_crop: false
+video_height: 384
+video_width: 320
+num_video_frames: 8
+cond_mask_prob: 0.0
+cam_ext_mask_prob: -1.0
+consumer_dataset:
+  _target_: dataset_T_sim.ConsumerDataset
+data_collator:
+  _target_: dataset_T_sim.DataCollator
+hdf5_dataset:
+  _target_: data.hdf5_dataset_libero_T.HDF5VLADataset
+  sample_weights:
+    libero_10_robot: 1.0
+dataset_list:
+  - ${dataset.hdf5_dataset}
+mean_std_path: ${data_root}/libero_vam/qpos_mean_std_online.pkl
+image_aug: true
+image_aug_prob: 0.5
+auto_adjust_image_brightness: false
+geo_aug: true
+geo_aug_crop_ratio: 0.85
+geo_aug_rotation_degrees: 5
+state_noise_snr: null

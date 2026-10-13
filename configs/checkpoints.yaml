@@ -1,0 +1,13 @@
+# Relative to the repository root by default. Override on another machine.
+root: ${oc.env:MASKWAM_CHECKPOINT_ROOT,ckpt}
+
+xtrainer:
+  released:
+    model: ${root}/MaskWAM-real-ckpt
+    expected_type: mask_wan_mot_real
+    action_type: eep
+    action_steps: 48
+
+libero:
+  model: ${root}/MaskWAM-libero-ckpt
+  expected_type: mask_wan_mot_sim

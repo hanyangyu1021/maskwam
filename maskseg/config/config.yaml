@@ -1,0 +1,37 @@
+project_name: "MaskWAM-Seg"
+
+# SAM3 模型配置
+sam:
+  checkpoint: "../pretrained_models/sam3/sam3.pt"
+  device: "cuda:0"
+
+# CoTracker 配置
+cotracker: {}
+
+# 标注服务器配置
+server:
+  root_dir: "."
+
+  # 标注任务池 JSON 文件
+  no_annotation_lang: "asserts/demo_data/no_annotation_lang.json"
+  no_annotation_sam: "asserts/demo_data/no_annotation_sam.json"
+  has_annotation_lang: "asserts/demo_data/has_annotation_lang.json"
+  has_annotation_sam: "asserts/demo_data/has_annotation_sam.json"
+
+  # 用户管理
+  user_list_file: "asserts/demo_data/user_list.txt"
+  user_history_dir: "user_config"
+
+  # 标注保存路径模板（{video_name} 在运行时替换）
+  save_path_lang_temp: "asserts/demo_data/human_anno_lang/{video_name}.npz"
+  save_path_sam_temp: "asserts/demo_data/human_anno_sam/0/sam/{video_name}.npz"
+
+  # SAM mask 生成输出路径（由 parse_sam.py 生成）
+  sam_mask_save_path: "asserts/demo_data/human_anno_sam/0/sam_mask/{video_name}.npz"
+  sam_video_save_path: "asserts/demo_data/human_anno_sam/0/sam_video/{video_name}.mp4"
+
+  # 原始视频目录
+  video_dir: ""
+
+  # 错误日志
+  error_log: "user_config/error_video.txt"

@@ -1,0 +1,70 @@
+defaults:
+  - _self_
+  - dataset: xtrainer
+
+project_root: ${oc.env:MASKWAM_ROOT,.}
+dev_dir: ${project_root}
+data_root: ${oc.env:MASKWAM_DATA_ROOT,${project_root}/realdata}
+pretrained_root: ${oc.env:MASKWAM_PRETRAINED_ROOT,${project_root}/pretrained_models}
+wan_root: ${oc.env:MASKWAM_WAN_PATH,${pretrained_root}/Wan2.2-TI2V-5B}
+checkpoint_root: ${oc.env:MASKWAM_CHECKPOINT_ROOT,${project_root}/ckpt}
+
+debug: false
+wandb_project: maskwam
+exp_name: maskwam_${dataset.platform}_bs${training.batch_size}_all
+ckpt_save_dir: ${checkpoint_root}/${exp_name}
+save_training_state: true
+checkpoints_total_limit: 5
+resume_ckpt: null
+
+model:
+  type: ${dataset.model_type}
+  wan:
+    checkpoint_path: ${wan_root}
+    config_path: ${wan_root}
+    vae_path: ${wan_root}/Wan2.2_VAE.pth
+    precision: bfloat16
+
+deepspeed: ${project_root}/configs/zero2.json
+seed: 42
+
+training:
+  mixed_precision: bf16
+  batch_size: 2
+  max_training_steps: 200000
+  max_evaluation_steps: 20
+  optimizer_lr: 2.5e-5
+  optimizer_betas: [0.9, 0.95]
+  optimizer_eps: 1.0e-8
+  optimizer_weight_decay: 1.0e-10
+  scheduler_warmup_steps: 1000
+  scheduler_decay_steps: 80000
+  scheduler_decay_lr: 2.5e-6
+  grad_accumulation_steps: 4
+  max_grad_norm: 1.0
+  train_frequency: 50
+  ckpt_frequency: 5000
+  eval_frequency: 1000
+  action_loss_weight: 1.0
+  video_loss_weight: 1.0
+  mask_loss_weight: 0.5
+  use_mask: ${dataset.use_mask}
+  input_mask: ${dataset.input_mask}
+  predict_mask: ${dataset.predict_mask}
+  mask_random: 1.0
+
+dataloader:
+  _target_: torch.utils.data.DataLoader
+  batch_size: ${training.batch_size}
+  shuffle: true
+  num_workers: 8
+  pin_memory: true
+  persistent_workers: true
+
+dataloader_val:
+  _target_: torch.utils.data.DataLoader
+  batch_size: ${training.batch_size}
+  shuffle: false
+  num_workers: 4
+  pin_memory: true
+  persistent_workers: true

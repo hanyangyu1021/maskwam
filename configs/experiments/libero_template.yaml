@@ -1,0 +1,13 @@
+platform: libero
+source_run: null
+model_type: mask_wan_mot_sim
+dataset: libero
+action_type: qpos
+state_dim: 16
+action_chunk_size: 48
+video_height: 384
+video_width: 320
+num_video_frames: 8
+input_mask: true
+predict_mask: true
+checkpoint: null
